@@ -1,26 +1,48 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 
+import { Saluto } from './components/Hello';
+import { Menu } from './components/Menu';
+import { Button2 } from './components/Buttonts';
+import { Display } from './components/Display';
+
 function App() {
+  const [counter, setCounter] = React.useState(0);  
+  const handleClick = () => setCounter(counter + 1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="App">    
+      <Menu/>
+      <Hello/>
+      <Button2 aumentaContatore={handleClick}/>
+      <Display message={counter}/>
+      <Saluto/>
+      <Footer/>
     </div>
   );
 }
+
+function Hello(){
+  return (
+     <h3>Hello, Hello</h3>
+  );
+}
+
+
+
+function Footer(){
+  return(
+    <div>Footer</div>
+  )
+}
+
+
+
+
+
+
+
+
+
 
 export default App;
